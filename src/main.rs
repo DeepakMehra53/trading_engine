@@ -10,10 +10,10 @@ struct Price{
 }
 
 impl Price {
-    fn new (price:u64)->Price{
+    fn new (price:f64)->Price{
         let scalar=100000;
         let integral =price as u64;
-        let fractional =((price % 1.0) * scalar as f64);
+        let fractional = ((price % 1.0) * scalar as f64)as u64;     
         Price{
             scalar,
             integral,
@@ -36,9 +36,7 @@ struct Order {
 
 impl Order {
     fn new(bid_or_ask:BidorAsk,size:f64)->Order{
-        Order{
-            bid_or_ask,size
-        }
+        Order{ bid_or_ask,size}
     }
 }
 
